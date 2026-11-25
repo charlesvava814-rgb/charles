@@ -1,0 +1,321 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARLES | Official Website</title>
+
+    <style>
+        :root {
+            --green: #39ff14;
+            --yellow: #faff00;
+            --black: #080808;
+            --white: #ffffff;
+            --gray: #999999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: Arial, sans-serif;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 8%;
+            align-items: center;
+        }
+
+        nav h2 {
+            letter-spacing: 5px;
+            color: var(--green);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(65px, 15vw, 150px);
+            letter-spacing: 15px;
+            color: var(--green);
+            text-shadow: 0 0 25px rgba(57, 255, 20, 0.35);
+        }
+
+        .hero p {
+            color: var(--yellow);
+            letter-spacing: 5px;
+            margin-top: 20px;
+        }
+
+        /* MUSIC SECTION */
+
+        .music {
+            text-align: center;
+            padding: 80px 20px;
+            background: #111111;
+        }
+
+        .music h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+            color: var(--green);
+        }
+
+        .music p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .music h3 {
+            color: var(--yellow);
+            margin-bottom: 20px;
+        }
+
+        /* RECTANGULAR SONG COVER */
+
+        .song-cover {
+            display: block;
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            margin: 0 auto 25px;
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.2);
+            transition: 0.3s;
+        }
+
+        .song-cover:hover {
+            transform: scale(1.03);
+        }
+
+        audio {
+            width: 90%;
+            max-width: 400px;
+            accent-color: var(--green);
+        }
+
+        /* ABOUT SECTION */
+
+        #about {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            letter-spacing: 5px;
+            color: var(--green);
+        }
+
+        #about p {
+            max-width: 650px;
+            margin: auto;
+            color: #aaaaaa;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* SOCIAL MEDIA */
+
+        .socials {
+            text-align: center;
+            padding: 70px 20px;
+            background: #111111;
+        }
+
+        .socials h2 {
+            color: var(--green);
+            margin-bottom: 25px;
+            font-size: 32px;
+        }
+
+        .socials a {
+            display: inline-block;
+            color: var(--black);
+            background: var(--green);
+            text-decoration: none;
+            padding: 12px 25px;
+            margin: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            background: var(--yellow);
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--yellow);
+            border-top: 1px solid #222222;
+        }
+
+        /* MOBILE DESIGN */
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 25px 5%;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                letter-spacing: 7px;
+            }
+
+            .hero p {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+
+            #about h2 {
+                font-size: 30px;
+            }
+
+            .song-cover {
+                width: 95%;
+                max-width: 500px;
+                height: auto;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <h2>CHARLES.</h2>
+
+        <div>
+            <a href="#home">HOME</a>
+            <a href="#music">MUSIC</a>
+            <a href="#about">ABOUT</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+        <h1>CHARLES</h1>
+        <p>FREE FLOW = DON'T FORCE</p>
+    </section>
+
+    <!-- MUSIC SECTION -->
+
+    <section class="music" id="music">
+
+        <h2>MUSIC</h2>
+
+        <p>My music. My emotions. My stories.</p>
+
+        <h3>MY FIRST TRACK</h3>
+
+        <img
+            src="./2_20261007_143104_0001.png"
+            alt="My first track cover artwork"
+            class="song-cover"
+        >
+
+        <audio controls preload="metadata">
+            <source src="./my%20songs/song1.mp3.wav" type="audio/wav">
+            Your browser does not support audio.
+        </audio>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+
+    <section id="about">
+
+        <h2>ABOUT CHARLES</h2>
+
+        <p>
+            I'm CHARLES. An independent artist exploring
+            emotions, thoughts, overthinking and the human
+            experience through music.
+
+            <br><br>
+
+            Every song tells a story.
+            Every rhyme carries an emotion.
+        </p>
+
+    </section>
+
+    <!-- SOCIAL MEDIA -->
+
+    <section class="socials">
+
+        <h2>FOLLOW CHARLES</h2>
+
+        <a href="https://www.instagram.com/c.h.a.r.l.e.s._flow/"
+           target="_blank"
+           rel="noopener noreferrer">
+            INSTAGRAM
+        </a>
+
+        <a href="https://www.youtube.com/@charlesvssss2492"
+           target="_blank"
+           rel="noopener noreferrer">
+            YOUTUBE
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+        © 2026 CHARLES. ALL RIGHTS RESERVED.
+    </footer>
+
+</body>
+</html>
+```
