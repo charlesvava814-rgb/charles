@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Listen to original music by CHARLES.">
+    <meta name="theme-color" content="#080808">
+
+    <title>CHARLES | Music</title>
+
+    <style>
+        :root {
+            --bg: #080808;
+            --card: #131313;
+            --line: #242424;
+            --text: #ffffff;
+            --muted: #a3a3a3;
+            --green: #39ff14;
+            --yellow: #faff00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            color-scheme: dark;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background:
+                radial-gradient(ellipse at top, rgba(57, 255, 20, 0.12), transparent 60%),
+                var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 8%;
+            background: rgba(8, 8, 8, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            color: var(--green);
+            border-bottom-color: var(--green);
+        }
+
+        a:focus-visible,
+        audio:focus-visible {
+            outline: 2px solid var(--yellow);
+            outline-offset: 4px;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Heading */
+        .heading {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        .heading h1 {
+            font-size: clamp(2.8rem, 10vw, 6.25rem);
+            line-height: 1.1;
+            color: var(--green);
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 25px rgba(57, 255, 20, 0.5);
+        }
+
+        .heading p {
+            color: var(--muted);
+            margin-top: 20px;
+            font-size: 1.05rem;
+        }
+
+        /* Songs */
+        .songs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 350px));
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 6% 100px;
+        }
+
+        .song {
+            background: var(--card);
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+        }
+
+        .song:hover {
+            transform: translateY(-6px);
+            border-color: var(--green);
+        }
+
+        .song.playing {
+            border-color: var(--green);
+            box-shadow: 0 0 35px rgba(57, 255, 20, 0.35);
+        }
+
+        .song img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .song h2 {
+            color: var(--yellow);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .song audio {
+            display: block;
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--yellow);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-top: 1px solid var(--line);
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                justify-content: center;
+            }
+
+            .heading {
+                padding-top: 50px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .song {
+                transition: none;
+            }
+
+            .song:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav aria-label="Main">
+        <a class="logo" href="index.html">CHARLES.</a>
+
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="music.html" aria-current="page">MUSIC</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <header class="heading">
+            <h1>MY MUSIC</h1>
+            <p>My music. My emotions. My stories.</p>
+        </header>
+
+        <section class="songs" aria-label="Tracks">
+
+            <!-- FIRST SONG (copy this whole <article> to add another song) -->
+            <article class="song">
+
+                <img src="./2_20261007_143104_0001.png"
+                     alt="Cover art for My First Track"
+                     width="350"
+                     height="350"
+                     loading="lazy">
+
+                <h2>MY FIRST TRACK</h2>
+
+                <audio controls preload="metadata" aria-label="Play My First Track">
+                    <source src="./my%20songs/song1.mp3.wav" type="audio/wav">
+                    Your browser does not support audio.
+                </audio>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; <span id="year">2026</span> CHARLES. ALL RIGHTS RESERVED.
+    </footer>
+
+    <script>
+        const players = document.querySelectorAll('.song audio');
+
+        players.forEach(function (player) {
+            const card = player.closest('.song');
+
+            // Only one song plays at a time, and its card glows
+            player.addEventListener('play', function () {
+                players.forEach(function (other) {
+                    if (other !== player) other.pause();
+                });
+                card.classList.add('playing');
+            });
+
+            player.addEventListener('pause', function () {
+                card.classList.remove('playing');
+            });
+
+            player.addEventListener('ended', function () {
+                card.classList.remove('playing');
+            });
+        });
+
+        // Keeps the footer year up to date
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
